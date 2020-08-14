@@ -10,7 +10,7 @@ import Timeline from './timeline/main';
 const Switcher = () => (
   <>
     <Switch>
-      <Route exact path="timeline" component={Timeline} />
+      <Route exact path="/timeline" component={Timeline} />
     </Switch>
   </>
 );
