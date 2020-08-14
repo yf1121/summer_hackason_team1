@@ -1,9 +1,24 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 import Timeline from './timeline/main';
-// import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+const Switcher = () => (
+  <>
+    <Switch>
+      <Route exact path="timeline" component={Timeline} />
+    </Switch>
+  </>
+);
 
 const App = () => (
-  <Timeline />
+  <Router>
+    <Switcher />
+  </Router>
 );
 
 export default App;
