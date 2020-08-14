@@ -1,14 +1,14 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { firebaseAuth } from './firebase/main';
+import { firebaseAuth, getUserFromUid } from './firebase/main';
 
 export default class Auth extends React.Component {
   constructor() {
     super();
     this.state = {
       signinChecked: false,
-      isSignedIn: false,
+      isLoggedIn: false,
     };
 
     this.isMounted = false;
@@ -17,18 +17,18 @@ export default class Auth extends React.Component {
   componentDidMount() {
     this.isMounted = true;
 
-    firebaseAuth.onAuthStateChanged((user) => {
+    firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
         if (this.isMounted) {
           this.setState({
             signinChecked: true,
-            isSignedIn: true,
+            isLoggedIn: !!await getUserFromUid(user.uid),
           });
         }
       } else if (this.isMounted) {
         this.setState({
           signinChecked: true,
-          isSignedIn: false,
+          isLoggedIn: false,
         });
       }
     });
@@ -39,7 +39,7 @@ export default class Auth extends React.Component {
   }
 
   render() {
-    const { signinChecked, isSignedIn } = this.state;
+    const { signinChecked, isLoggedIn } = this.state;
     if (!signinChecked) {
       return (
         <>
@@ -47,7 +47,7 @@ export default class Auth extends React.Component {
         </>
       );
     }
-    if (isSignedIn) {
+    if (isLoggedIn) {
       const { children } = this.props;
       return children;
     }
