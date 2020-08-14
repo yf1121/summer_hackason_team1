@@ -1,4 +1,4 @@
 # ハッカソンteam1
 ## member
-Fogrex
-yf1121
+- Fogrex  
+- yf1121
