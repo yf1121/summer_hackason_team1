@@ -26,15 +26,13 @@ const posts = db.collection('posts');
 const latestposts = posts.orderBy('createdAt', 'desc');
 const popularposts = posts.orderBy('fav', 'desc');
 
-const users = db.collections('users');
+const users = db.collection('users');
 
 // ポスト云々
 const getPosts = (postSnapshot) => Promise.all(
   postSnapshot.docs
-    .map((doc) => async () => {
-      const user = firebase.collection('users')
-        .doc(doc.data().userid)
-        .get();
+    .map(async (doc) => {
+      const user = await db.collection('users').doc(doc.data().userid).get();
       return {
         user: user.data(),
         id: doc.id,
@@ -43,11 +41,11 @@ const getPosts = (postSnapshot) => Promise.all(
     }),
 );
 const getLatestPosts = async (num) => {
-  const latestPostsSnapshot = await (num ? latestposts.limit(num).get : latestposts.get)();
+  const latestPostsSnapshot = await (num ? latestposts.limit(num).get() : latestposts.get());
   return await getPosts(latestPostsSnapshot);
 };
 const getPopularPosts = async (num) => {
-  const popularPostsSnapshot = await (num ? popularposts.limit(num).get : popularposts.get)();
+  const popularPostsSnapshot = await (num ? popularposts.limit(num).get() : popularposts.get());
   return await getPosts(popularPostsSnapshot);
 };
 const getUserPosts = async (userid) => {
