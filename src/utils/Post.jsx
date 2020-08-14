@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import {
   Card,
@@ -16,15 +17,13 @@ const formatDate = (date, _format) => {
 };
 
 const Post = ({
-  title,
-  newspaper,
-  newsday,
-  createdAt,
-  content,
-  user,
+  post,
 }) => {
-  const newsDayFormatted = formatDate(new Date(newsday), 'yyyy年MM月dd日');
-  const createdDayFormatted = formatDate(new Date(createdAt), 'MM/dd HH:mm');
+  const {
+    title, newspaper, newsday, createdAt, content, user,
+  } = post;
+  const newsDayFormatted = formatDate(newsday.toDate(), 'yyyy年MM月dd日');
+  const createdDayFormatted = formatDate(createdAt.toDate(), 'MM/dd HH:mm');
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
@@ -47,24 +46,28 @@ const Post = ({
 };
 
 Post.propTypes = {
-  title: PropTypes.string,
-  newspaper: PropTypes.string,
-  newsday: PropTypes.string,
-  createdAt: PropTypes.string,
-  content: PropTypes.string,
-  user: PropTypes.shape({
-    name: PropTypes.string,
+  post: PropTypes.shape({
+    title: PropTypes.string,
+    newspaper: PropTypes.string,
+    newsday: PropTypes.object,
+    createdAt: PropTypes.object,
+    content: PropTypes.string,
+    user: PropTypes.shape({
+      name: PropTypes.string,
+    }),
   }),
 };
 
 Post.defaultProps = {
-  title: '',
-  newspaper: '',
-  newsday: '',
-  createdAt: '',
-  content: '',
-  user: {
-    name: '',
+  post: {
+    title: '',
+    newspaper: '',
+    newsday: {},
+    createdAt: {},
+    content: '',
+    user: {
+      name: '',
+    },
   },
 };
 export default Post;
