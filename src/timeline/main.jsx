@@ -1,12 +1,14 @@
 import React from 'react';
+// import { Header, Footer } from './utils/'
 import {
   Tabs,
   Tab,
+  Container,
 } from 'react-bootstrap';
 import LatestPosts from './LatestPosts';
 import PopularPosts from './PopularPosts';
 
-export default class Timeline extends React.Component {
+class Feed extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -32,3 +34,13 @@ export default class Timeline extends React.Component {
     );
   }
 }
+
+export default () => (
+  <>
+    {/* <Header /> */}
+    <Container>
+      <Feed />
+    </Container>
+    {/* <Footer /> */}
+  </>
+);
