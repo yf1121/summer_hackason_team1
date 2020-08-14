@@ -1,5 +1,6 @@
 import React from 'react';
 import { getLatestPosts } from '../utils/firebase/main';
+import Post from '../utils/Post';
 
 export default class LatestPosts extends React.Component {
   constructor() {
@@ -10,15 +11,18 @@ export default class LatestPosts extends React.Component {
   }
 
   componentDidMount() {
-    getLatestPosts.then((posts) => {
+    getLatestPosts(10).then((posts) => {
       this.setState({ posts });
     });
   }
 
   render() {
+    const { posts } = this.state;
     return (
       <>
-        
+        {
+          posts.map((post) => (<Post key={post.id} post={post} />))
+        }
       </>
     );
   }
