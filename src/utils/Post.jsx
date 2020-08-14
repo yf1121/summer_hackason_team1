@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Card,
 } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const formatDate = (date, _format) => {
   let format = _format || 'YYYY-MM-DD hh:mm:ss.SSS';
@@ -44,3 +45,26 @@ const Post = ({
     </Card>
   );
 };
+
+Post.propTypes = {
+  title: PropTypes.string,
+  newspaper: PropTypes.string,
+  newsday: PropTypes.string,
+  createdAt: PropTypes.string,
+  content: PropTypes.string,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+  }),
+};
+
+Post.defaultProps = {
+  title: '',
+  newspaper: '',
+  newsday: '',
+  createdAt: '',
+  content: '',
+  user: {
+    name: '',
+  },
+};
+export default Post;
