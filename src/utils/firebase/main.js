@@ -73,6 +73,10 @@ const getUserFromUid = async (uid) => {
     ...user.data(),
   };
 };
+const getCurrentUser = () => {
+  const { currentUser } = firebaseAuth;
+  return getUserFromUid(currentUser.uid);
+};
 const setUser = (userdata) => users.doc().set(userdata);
 
 export {
@@ -84,5 +88,6 @@ export {
   createPost,
   getUser,
   getUserFromUid,
+  getCurrentUser,
   setUser,
 };
