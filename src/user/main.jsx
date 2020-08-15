@@ -6,6 +6,7 @@ import {
 import PropTypes from 'prop-types';
 import { getUser, getUserPosts } from '../utils/firebase/main';
 import Post from '../utils/Post';
+import style from './UserPage.module.css';
 
 const UserDetail = ({ user }) => {
   const { name } = user;
@@ -55,10 +56,23 @@ export default class User extends React.Component {
     const { user, posts } = this.state;
     if (!user) return 'Loading...';
     return (
-      <Row>
-        <Col sm={3}><UserDetail user={user} /></Col>
-        <Col sm={9} style={{ padding: '0px 5px' }}><PostsList posts={posts} /></Col>
-      </Row>
+      <div className={style.body}>
+        <Row>
+          <Col sm={3} className={style.username}>
+            <div className={style.profile}>
+              <UserDetail user={user} />
+              <div className={style.circle}>
+                <h4 className={style.rep}>感想数</h4>
+                <postNum className={style.postnum}>{posts.length}</postNum>
+              </div>
+            </div>
+          </Col>
+          <Col sm={9} className={style.card}>
+            <p className={style.title}>My Post</p>
+            <PostsList posts={posts} />
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
