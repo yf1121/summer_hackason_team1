@@ -53,7 +53,7 @@ const getUserPosts = async (userid) => {
   return await getPosts(userPostsSnapshot);
 };
 const createPost = (data) => (
-  posts.doc(data.id).set(data)
+  posts.doc().set(data)
 );
 
 // ユーザーの取得
