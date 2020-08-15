@@ -16,7 +16,7 @@ const NavigationBar = () => (
     <Navbar.Collapse className="justify-content-end">
       <Navbar.Text className={style.login}>
         <AuthToggle>
-          <span loading>
+          <span loading="true">
             Loading...
           </span>
           <Login loggedIn={false} />
