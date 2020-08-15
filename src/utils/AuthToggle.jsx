@@ -66,5 +66,10 @@ export default class AuthToggle extends React.Component {
 }
 
 AuthToggle.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
