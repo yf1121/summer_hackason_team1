@@ -67,7 +67,7 @@ export default class Post extends React.Component {
             <Form.Label>Content</Form.Label>
             <Form.Control as="textarea" placeholder="Content" value={content} onChange={(e) => this.onChange(e, 'content')} />
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={(e) => this.onClick(e)} active={!isPost}>
+          <Button variant="primary" type="submit" onClick={(e) => this.onClick(e)} disabled={isPost}>
             Submit
           </Button>
         </Form>

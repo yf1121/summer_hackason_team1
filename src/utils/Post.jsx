@@ -4,6 +4,9 @@ import {
   Card,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import style from './Post.module.css';
 
 const formatDate = (date, _format) => {
   let format = _format || 'YYYY-MM-DD hh:mm:ss.SSS';
@@ -20,24 +23,24 @@ const Post = ({
   post,
 }) => {
   const {
-    title, newspaper, newsday, createdAt, content, user,
+    title, newspaper, newsday, createdAt, content, user, userid, id,
   } = post;
   const newsDayFormatted = formatDate(newsday.toDate(), 'yyyy年MM月dd日');
   const createdDayFormatted = formatDate(createdAt.toDate(), 'MM/dd HH:mm');
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <div>
+    <Card className={style.card}>
+      <Card.Body className={style.card_inner}>
+        <div className={style.newspaper_title}>
           {`${newspaper} : ${newsDayFormatted}`}
         </div>
-        <div>
-          {user.name}
+        <Card.Title className={style.title}><Link to={`/post/${id}`} className={style.link}>{title}</Link></Card.Title>
+        <div className={style.username}>
+          <Link to={`/user/${userid}`} className={style.link}>{user.name}</Link>
         </div>
-        <Card.Title>{title}</Card.Title>
         <Card.Text>
-          {content}
+          {content.length > 50 ? `${content.slice(0, 50)}...` : content}
         </Card.Text>
-        <div>
+        <div className={style.created_at}>
           {createdDayFormatted}
         </div>
       </Card.Body>
@@ -52,6 +55,8 @@ Post.propTypes = {
     newsday: PropTypes.object,
     createdAt: PropTypes.object,
     content: PropTypes.string,
+    userid: PropTypes.string,
+    id: PropTypes.string,
     user: PropTypes.shape({
       name: PropTypes.string,
     }),
@@ -65,6 +70,8 @@ Post.defaultProps = {
     newsday: {},
     createdAt: {},
     content: '',
+    userid: '',
+    id: '',
     user: {
       name: '',
     },
