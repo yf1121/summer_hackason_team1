@@ -61,7 +61,7 @@ const getPostDetail = async (id) => {
   };
 };
 const createPost = (data) => (
-  posts.doc(data.id).set(data)
+  posts.doc().set(data)
 );
 
 // ユーザーの取得
