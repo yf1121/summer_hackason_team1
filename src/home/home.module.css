@@ -1,0 +1,28 @@
+.homediv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #3c322a;
+    background-image: url('')
+}
+
+.hometitle {
+    padding-top: 2em;
+}
+
+.homedetail {
+    font-size: 1.75em;
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
+.linklearge {
+    text-decoration: underline;
+    color: #3c322a;
+    font-size: 0.75em;
+}
+
+.link {
+    color: #3c322a;
+    text-decoration: underline;
+}
