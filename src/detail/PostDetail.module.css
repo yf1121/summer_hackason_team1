@@ -1,15 +1,23 @@
 .title {
     text-align: left;
     font-size: 2em;
+    margin-bottom: 0.5em;
 }
 
 .gray {
     color: #3c322a;
     font-size: 0.8em;
+    margin-right: 1em;
 }
 
 .main {
     font-size: 1em;
+    margin-top: 1em;
+}
+
+.username {
+    font-size: 1em;
+    margin-right: 0.5em;
 }
 
 .link {
@@ -17,6 +25,12 @@
     font-size: 1em;
     width: 5em;
     margin-bottom: 1em;
+}
+
+.meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .body {
