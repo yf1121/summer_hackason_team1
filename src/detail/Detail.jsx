@@ -26,6 +26,7 @@ export default class Detail extends React.Component {
         <h2 className={style.title}>{posts.title}</h2>
         <h3 className={style.gray}>{posts.newspaper}</h3>
         <p className={style.main}>{posts.content}</p>
+        <a href="/timeline" className={style.link}>一覧に戻る</a>
       </>
     );
   }
