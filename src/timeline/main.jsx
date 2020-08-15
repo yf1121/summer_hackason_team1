@@ -7,7 +7,7 @@ import {
 } from 'react-bootstrap';
 import LatestPosts from './LatestPosts';
 import PopularPosts from './PopularPosts';
-import style from './Timeline.module.css';
+import style from './Timeline.module.scss';
 
 class Feed extends React.Component {
   constructor() {
@@ -38,7 +38,7 @@ class Feed extends React.Component {
 
 export default () => (
   <>
-    <Container>
+    <Container className="maincontents">
       <Feed />
     </Container>
   </>

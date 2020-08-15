@@ -1,8 +1,27 @@
+/* eslint-disable no-irregular-whitespace */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { Container, Form, Button } from 'react-bootstrap';
+import {
+  InputGroup, Form, Button, Alert,
+} from 'react-bootstrap';
 import { firebaseAuth, setUser, getUserFromUid } from '../utils/firebase/main';
+import style from './account.module.scss';
 
+// eslint-disable-next-line react/prop-types
+const SignupText = ({ children }) => (
+  <div className={`${style.wrapper} maincontents`}>
+    <div className={style.float_box}>
+      <div>あなたはまだ表示名を登録していません！</div>
+      <h3 className={style.info}>表示名を登録</h3>
+      <div>空白文字を除き3文字以上</div>
+      {children}
+    </div>
+  </div>
+);
+
+const validateUsername = (username) => (
+  username.length >= 3 && username.replace(/(\s|　)+/ug, '').length >= 3
+);
 export default class Signup extends React.Component {
   constructor() {
     super();
@@ -61,16 +80,22 @@ export default class Signup extends React.Component {
       return <Redirect to="/timeline" />;
     }
     const { username } = this.state;
+    const isValid = validateUsername(username);
     return (
-      <Container>
-        <Form.Control
-          type="text"
-          value={username}
-          palceholder="username"
-          onChange={(e) => this.onChange(e)}
-        />
-        <Button variant="primary" onClick={() => this.onClick()}>Submit</Button>
-      </Container>
+      <SignupText>
+        {isValid ? '' : <Alert variant="danger">不正な表示名です</Alert>}
+        <InputGroup>
+          <Form.Control
+            type="text"
+            value={username}
+            palceholder="username"
+            onChange={(e) => this.onChange(e)}
+          />
+          <InputGroup.Append>
+            <Button variant="primary" onClick={() => this.onClick()} disabled={!isValid}>Submit</Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </SignupText>
     );
   }
 }

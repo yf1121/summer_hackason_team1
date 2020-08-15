@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #3C322A;
+  margin: 0px;
+}
+
+.float_box {
+  width: 100%;
+  padding: 50px 10px;
+  background-color: white;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+}
+@media screen and (min-width: 500px)  {
+  .float_box {
+    width: 500px;
+  }
+}
+
+.google_signin_button {
+  width: 191px;
+  height: 46px;
+  border: 0px none;
+  background-size: 191px 46px;
+  background-image: url(./googlebutton/btn_google_signin_light_normal_web@2x.png);
+}
+.google_signin_button:hover {
+  background-image: url(./googlebutton/btn_google_signin_light_focus_web@2x.png);
+}
+.google_signin_button:focus {
+  border: 0px none;
+  background-color: none;
+  background-image: url(./googlebutton/btn_google_signin_light_pressed_web@2x.png);
+}
+
+.info {
+  margin: 10px 10px;
+}
