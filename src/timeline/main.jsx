@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import LatestPosts from './LatestPosts';
 import PopularPosts from './PopularPosts';
+import style from './Timeline.module.css';
 
 class Feed extends React.Component {
   constructor() {
@@ -24,10 +25,10 @@ class Feed extends React.Component {
         activeKey={key}
         onSelect={(k) => this.setState({ key: k })}
       >
-        <Tab eventKey="Recent" title="Recent">
+        <Tab eventKey="Recent" title="Recent" className={style.wrapper}>
           <LatestPosts />
         </Tab>
-        <Tab eventKey="Popular" title="Popular">
+        <Tab eventKey="Popular" title="Popular" className={style.wrapper}>
           <PopularPosts />
         </Tab>
       </Tabs>
@@ -37,10 +38,8 @@ class Feed extends React.Component {
 
 export default () => (
   <>
-    {/* <Header /> */}
     <Container>
       <Feed />
     </Container>
-    {/* <Footer /> */}
   </>
 );

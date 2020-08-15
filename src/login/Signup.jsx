@@ -58,7 +58,7 @@ export default class Signup extends React.Component {
       return <Redirect to="/login" />;
     }
     if (isLoggedIn) {
-      return <Redirect to="/" />;
+      return <Redirect to="/timeline" />;
     }
     const { username } = this.state;
     return (

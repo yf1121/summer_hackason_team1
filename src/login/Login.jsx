@@ -42,7 +42,7 @@ export default class Login extends React.Component {
     const { isLoggedIn, isSignedUp } = this.state;
     if (isSignedUp) {
       if (isLoggedIn) {
-        return <Redirect to="/" />;
+        return <Redirect to="/timeline" />;
       }
       return <Redirect to="/signup" />;
     }
