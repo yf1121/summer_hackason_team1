@@ -2,6 +2,7 @@
 import React from 'react';
 import {
   Card,
+  Badge,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -23,7 +24,7 @@ const Post = ({
   post,
 }) => {
   const {
-    title, newspaper, newsday, createdAt, content, user, userid, id,
+    title, newspaper, newsday, createdAt, content, user, userid, id, tag,
   } = post;
   const newsDayFormatted = formatDate(newsday.toDate(), 'yyyy年MM月dd日');
   const createdDayFormatted = formatDate(createdAt.toDate(), 'MM/dd HH:mm');
@@ -34,6 +35,7 @@ const Post = ({
           {`${newspaper} : ${newsDayFormatted}`}
         </div>
         <Card.Title className={style.title}><Link to={`/post/${id}`} className={style.link}>{title}</Link></Card.Title>
+        <Badge variant="light">{tag}</Badge>
         <div className={style.username}>
           <Link to={`/user/${userid}`} className={style.link}>{user.name}</Link>
         </div>
@@ -52,6 +54,7 @@ Post.propTypes = {
   post: PropTypes.shape({
     title: PropTypes.string,
     newspaper: PropTypes.string,
+    tag: PropTypes.string,
     newsday: PropTypes.object,
     createdAt: PropTypes.object,
     content: PropTypes.string,

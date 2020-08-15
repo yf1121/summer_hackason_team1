@@ -17,8 +17,6 @@
 .card:hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
-.card_inner {
-}
 .newspaper_title {
   font-size: 12px;
 }
@@ -27,5 +25,8 @@
 }
 .created_at {
   font-size: 12px;
+}
+.title {
+  margin: auto;
 }
 
