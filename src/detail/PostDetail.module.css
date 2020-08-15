@@ -1,3 +1,13 @@
-.detail {
-    text-align: center;
+.title {
+    text-align: left;
+    font-size: 2em;
+}
+
+.gray{
+    color: #3c322a;
+    font-size: 0.8em;
+}
+
+.main{
+    font-size: 1em;
 }

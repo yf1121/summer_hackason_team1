@@ -52,6 +52,10 @@ const getUserPosts = async (userid) => {
   const userPostsSnapshot = await latestposts.where('userid', '==', userid).get();
   return await getPosts(userPostsSnapshot);
 };
+const getPostDetail = async (id) => {
+  const post = await posts.doc(id).get();
+  return post.data();
+};
 const createPost = (data) => (
   posts.doc(data.id).set(data)
 );
@@ -85,6 +89,7 @@ export {
   getLatestPosts,
   getPopularPosts,
   getUserPosts,
+  getPostDetail,
   createPost,
   getUser,
   getUserFromUid,
