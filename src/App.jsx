@@ -12,6 +12,7 @@ import Login from './login/Login';
 import Signup from './login/Signup';
 import Logout from './login/Logout';
 import Post from './post/main';
+import Detail from './detail/Detail';
 import Home from './home/main';
 import Footer from './utils/Footer';
 
@@ -25,6 +26,8 @@ const Switcher = () => (
       <Route exact path="/timeline" component={Timeline} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
+      <Route exact path="/post/:postid" component={Detail} />
+      {/* Auth以下は認証が必要なページ */}
       <Auth>
         <Route exact path="/logout" key="logout" component={Logout} />
         <Route exact path="/post" key="post" component={Post} />
