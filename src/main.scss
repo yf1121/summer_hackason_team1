@@ -5,3 +5,10 @@ body{
 .maincontents {
     min-height: calc(100vh - 100px);
 }
+
+a {
+    color: inherit;
+}
+a:hover {
+    color: inherit;
+}

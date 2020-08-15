@@ -8,12 +8,6 @@
   transition: 0.2s;
   color: #3C322A;
 }
-.link {
-  color: #3C322A;
-}
-.link:hover {
-  color: #3C322A;
-}
 .card:hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }

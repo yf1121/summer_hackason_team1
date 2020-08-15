@@ -32,12 +32,13 @@ const Post = ({
     <Card className={style.card}>
       <Card.Body className={style.card_inner}>
         <div className={style.newspaper_title}>
-          {`${newspaper} : ${newsDayFormatted}`}
+          <Link to={`/search/newspaper/${newspaper}`}>{newspaper}</Link>
+          {` : ${newsDayFormatted}`}
         </div>
-        <Card.Title className={style.title}><Link to={`/post/${id}`} className={style.link}>{title}</Link></Card.Title>
-        <Badge variant="primary">{tag}</Badge>
+        <Card.Title className={style.title}><Link to={`/post/${id}`}>{title}</Link></Card.Title>
+        <Link to={`/search/tag/${tag}`}><Badge variant="primary">{tag}</Badge></Link>
         <div className={style.username}>
-          <Link to={`/user/${userid}`} className={style.link}>{user.name}</Link>
+          <Link to={`/user/${userid}`}>{user.name}</Link>
         </div>
         <Card.Text>
           {content.length > 50 ? `${content.slice(0, 50)}...` : content}

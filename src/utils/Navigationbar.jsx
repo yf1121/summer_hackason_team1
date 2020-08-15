@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AuthToggle from './AuthToggle';
 import MyPage from './nav/MyPage';
@@ -22,6 +22,9 @@ const NavigationBar = () => (
           <Login loggedIn={false} />
           <MyPage loggedIn />
         </AuthToggle>
+        <Link to="/search">
+          <Button style={{ margin: '0px 10px' }} variant="secondary">検索</Button>
+        </Link>
       </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
