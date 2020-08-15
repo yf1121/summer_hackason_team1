@@ -35,7 +35,7 @@ const Post = ({
           {`${newspaper} : ${newsDayFormatted}`}
         </div>
         <Card.Title className={style.title}><Link to={`/post/${id}`} className={style.link}>{title}</Link></Card.Title>
-        <Badge variant="light">{tag}</Badge>
+        <Badge variant="primary">{tag}</Badge>
         <div className={style.username}>
           <Link to={`/user/${userid}`} className={style.link}>{user.name}</Link>
         </div>
