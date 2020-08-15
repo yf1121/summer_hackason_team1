@@ -1,4 +1,5 @@
 .header {
+    height: 60px;
     background-color: rgb(225, 214, 182);
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -11,6 +12,7 @@
     font-size: 0.75em;
 }
 .footer {
+    height: 40px;
     background-color: rgb(225, 214, 182);
     padding-top: 0.75em;
     padding-bottom: 1.5em;
@@ -19,8 +21,4 @@
     border-top-width: 1px;
     border-top-color: rgb(112, 112, 112);
     font-size: 0.75em;
-}
-
-body{
-    background-color: rgb(252, 248, 235);
 }
