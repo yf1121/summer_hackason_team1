@@ -1,0 +1,13 @@
+.card {
+    padding: 1em;
+    width: 90%;
+    max-width: 50em;
+    min-width: 25em;
+    margin: 1em;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

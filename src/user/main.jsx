@@ -68,7 +68,7 @@ export default class User extends React.Component {
             </div>
           </Col>
           <Col sm={9} className={style.card}>
-            <p className={style.title}>My Post</p>
+            <p className={style.title}>Post</p>
             <PostsList posts={posts} />
           </Col>
         </Row>
