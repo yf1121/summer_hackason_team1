@@ -29,7 +29,7 @@ export default class MyPage extends React.Component {
         /
         <Link to="/logout">ログアウト</Link>
         <Link to="/post">
-          <Button style={{ margin: '0px 20px' }} variant="primary">投稿</Button>
+          <Button style={{ margin: '0px 10px' }} variant="primary">投稿</Button>
         </Link>
       </>
     );

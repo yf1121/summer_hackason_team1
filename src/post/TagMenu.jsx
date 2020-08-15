@@ -14,7 +14,13 @@ export default class TagMenu extends React.Component {
   render() {
     const { tags, title, value } = this.props;
     const tagComponent = tags.map((tag) => (
-      <Dropdown.Item eventKey={tag} onClick={() => this.setValue(tag)}>{tag}</Dropdown.Item>
+      <Dropdown.Item
+        key={tag}
+        eventKey={tag}
+        onClick={() => this.setValue(tag)}
+      >
+        {tag}
+      </Dropdown.Item>
     ));
     return (
       <DropdownButton

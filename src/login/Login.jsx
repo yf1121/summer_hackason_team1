@@ -16,11 +16,6 @@ const LoginText = ({ children }) => (
   </div>
 );
 
-const loginHandler = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebaseAuth.signInWithPopup(provider);
-};
-
 export default class Login extends React.Component {
   constructor() {
     super();
@@ -29,6 +24,7 @@ export default class Login extends React.Component {
     this.state = {
       isSignedUp: currentUser,
       isLoggedIn: false,
+      isChecking: false,
     };
   }
 
@@ -51,8 +47,16 @@ export default class Login extends React.Component {
     this.mounted = false;
   }
 
+  loginHandler() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebaseAuth.signInWithPopup(provider);
+    this.setState({
+      isChecking: true,
+    });
+  }
+
   render() {
-    const { isLoggedIn, isSignedUp } = this.state;
+    const { isLoggedIn, isSignedUp, isChecking } = this.state;
     if (isSignedUp) {
       if (isLoggedIn) {
         return <Redirect to="/timeline" />;
@@ -61,7 +65,9 @@ export default class Login extends React.Component {
     }
     return (
       <LoginText>
-        <input className={style.google_signin_button} type="button" onClick={loginHandler} />
+        {
+          isChecking ? <div>Checking...</div> : <input className={style.google_signin_button} type="button" onClick={() => this.loginHandler()} />
+        }
       </LoginText>
     );
   }
