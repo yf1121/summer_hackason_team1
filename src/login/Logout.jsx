@@ -1,6 +1,16 @@
 import React from 'react';
-import { Container, Button, Alert } from 'react-bootstrap';
+import { Button, Alert } from 'react-bootstrap';
 import { firebaseAuth } from '../utils/firebase/main';
+import style from './account.module.scss';
+
+// eslint-disable-next-line react/prop-types
+const LogoutText = ({ children }) => (
+  <div className={`${style.wrapper} maincontents`}>
+    <div className={style.float_box}>
+      {children}
+    </div>
+  </div>
+);
 
 export default class Logout extends React.Component {
   constructor() {
@@ -21,12 +31,12 @@ export default class Logout extends React.Component {
   render() {
     const { hasError } = this.state;
     return (
-      <Container>
+      <LogoutText>
         {hasError ? (<Alert variant="danger">Error!</Alert>) : false}
         <Button variant="primary" size="lg" active onClick={() => this.logout()}>
-          Logout
+          ログアウト
         </Button>
-      </Container>
+      </LogoutText>
     );
   }
 }
