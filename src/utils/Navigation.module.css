@@ -12,12 +12,13 @@
 }
 .footer {
     background-color: rgb(225, 214, 182);
-    padding-top: 0.5em;
-    padding-bottom: 0.25em;
+    padding-top: 0.75em;
+    padding-bottom: 1.5em;
     padding-left: 0.5em;
     border-top-style: solid;
     border-top-width: 1px;
     border-top-color: rgb(112, 112, 112);
+    font-size: 0.75em;
 }
 
 body{
