@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Badge } from 'react-bootstrap';
 import style from './PostDetail.module.css';
 import { getPostDetail } from '../utils/firebase/main';
 
@@ -43,11 +43,14 @@ export default class Detail extends React.Component {
       <div className={style.body}>
         <Card className={style.card}>
           <Card.Body className={style.cardbody}>
-            <h2 className={style.title}>{posts.title}</h2>
             <div className={style.meta}>
               <h3 className={style.gray}>{posts.newspaper}</h3>
               <h3 className={style.gray}>{newsDayFormatted}</h3>
             </div>
+            <h2 className={style.title}>{posts.title}</h2>
+            <h6>
+              <Badge variant="primary">{posts.tag}</Badge>
+            </h6>
             <p className={style.meta}>
               <span className={style.username}>{posts.user.name}</span>
               <span className={style.gray}>{createdDayFormatted}</span>
