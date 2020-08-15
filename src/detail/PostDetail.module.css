@@ -3,16 +3,42 @@
     font-size: 2em;
 }
 
-.gray{
+.gray {
     color: #3c322a;
     font-size: 0.8em;
 }
 
-.main{
+.main {
     font-size: 1em;
 }
 
-.link{
+.link {
     color: #3c322a;
     font-size: 1em;
+    width: 5em;
+    margin-bottom: 1em;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: 90%;
+    max-width: 50em;
+    min-width: 25em;
+    margin: 1em;
+}
+
+.cardbody {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
 }
