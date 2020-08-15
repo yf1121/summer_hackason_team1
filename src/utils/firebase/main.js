@@ -62,7 +62,11 @@ const searchTagPosts = async (tag) => {
 };
 const getPostDetail = async (id) => {
   const post = await posts.doc(id).get();
-  return post.data();
+  const user = await db.collection('users').doc(post.data().userid).get();
+  return {
+    user: user.data(),
+    ...post.data(),
+  };
 };
 const createPost = (data) => (
   posts.doc().set(data)

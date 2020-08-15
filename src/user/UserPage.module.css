@@ -1,0 +1,50 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.username {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.card {
+    padding: 0px 5px;
+}
+
+.body {
+    width: 95%
+}
+
+.title {
+    margin-top: 1em;
+}
+
+.postnum {
+    font-size: 2em;
+    color: #3c322a;
+    margin-top: 0px;
+    margin-bottom: 1em;
+}
+
+.rep {
+    font-size: 0.6em;
+    color: #3c322a;
+    margin-top: 1em;
+}
+
+.circle {
+    display: flex;
+    background: rgb(225, 214, 182);
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    flex-direction: column;
+    margin-top: 2em;
+    align-items: center;
+}

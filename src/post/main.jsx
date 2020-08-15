@@ -59,7 +59,7 @@ export default class Post extends React.Component {
       title, content, newsday, isPost, newspaper, tag,
     } = this.state;
     return (
-      <Container>
+      <Container className="maincontents">
         {isPost ? <Alert variant="primary">Posted</Alert> : ''}
         <Form>
           <TagMenu tags={newspapers} value={newspaper} title="Newspaper" onChange={(_tag) => this.onChangeTag('newspaper', _tag)} />
