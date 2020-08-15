@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import NavigationBar from './utils/Navigationbar';
+import Auth from './utils/Auth';
 import Timeline from './timeline/main';
 import Login from './login/Login';
 import Signup from './login/Signup';
@@ -19,11 +20,13 @@ const Switcher = () => (
       <Route exact path="/(.+)" component={NavigationBar} />
     </Switch>
     <Switch>
+      <Route exact path="/" component={Home} />
       <Route exact path="/timeline" component={Timeline} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
-      <Route exact path="/logout" component={Logout} />
-      <Route exact path="/" component={Home} />
+      <Auth>
+        <Route exact path="/logout" component={Logout} />
+      </Auth>
     </Switch>
     <Switch>
       <Route exact path="/(.+)" component={Footer} />

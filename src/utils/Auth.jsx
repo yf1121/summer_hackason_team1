@@ -1,60 +1,23 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { firebaseAuth, getUserFromUid } from './firebase/main';
+import AuthToggle from './AuthToggle';
 
-export default class Auth extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      signinChecked: false,
-      isLoggedIn: false,
-    };
-
-    this.mounted = false;
-  }
-
-  componentDidMount() {
-    this.mounted = true;
-
-    firebaseAuth.onAuthStateChanged(async (user) => {
-      if (user) {
-        if (this.mounted) {
-          this.setState({
-            signinChecked: true,
-            isLoggedIn: !!await getUserFromUid(user.uid),
-          });
-        }
-      } else if (this.mounted) {
-        this.setState({
-          signinChecked: true,
-          isLoggedIn: false,
-        });
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
-  }
-
-  render() {
-    const { signinChecked, isLoggedIn } = this.state;
-    if (!signinChecked) {
-      return (
-        <>
-          Loading...
-        </>
-      );
-    }
-    if (isLoggedIn) {
-      const { children } = this.props;
-      return children;
-    }
-    return <Redirect to="/login" />;
-  }
-}
-
+const Auth = (props) => {
+  const { children } = props;
+  const newChildren = React.cloneElement(children, { loggedIn: true });
+  return (
+    <AuthToggle>
+      <div loading>
+        Loading...
+      </div>
+      { newChildren }
+      <Redirect loggedIn={false} to="/login" />
+    </AuthToggle>
+  );
+};
 Auth.propTypes = {
   children: PropTypes.element.isRequired,
 };
+
+export default Auth;
