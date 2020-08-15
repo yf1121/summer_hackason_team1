@@ -64,14 +64,30 @@ const getUser = async (userid) => {
     ...userSnapshot.data(),
   };
 };
+const getUserFromUid = async (uid) => {
+  const usersList = await users.where('uid', '==', uid).get();
+  if (usersList.docs.length === 0) return null;
+  const user = usersList.docs[0];
+  return {
+    userid: user.id,
+    ...user.data(),
+  };
+};
+const getCurrentUser = () => {
+  const { currentUser } = firebaseAuth;
+  return getUserFromUid(currentUser.uid);
+};
 const setUser = (userdata) => users.doc().set(userdata);
 
 export {
+  firebase,
   firebaseAuth,
   getLatestPosts,
   getPopularPosts,
   getUserPosts,
   createPost,
   getUser,
+  getUserFromUid,
+  getCurrentUser,
   setUser,
 };
