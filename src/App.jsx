@@ -15,6 +15,7 @@ import Signup from './login/Signup';
 import Logout from './login/Logout';
 import Post from './post/main';
 import Detail from './detail/Detail';
+import Search from './search/Search';
 import User from './user/main';
 
 const Switcher = () => (
@@ -29,6 +30,9 @@ const Switcher = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/post/:postid" component={Detail} />
       <Route exact path="/user/:userid" component={User} />
+      <Route exact path="/search/:stype/:tag" component={Search} />
+      <Route exact path="/search/:stype" component={Search} />
+      <Route exact path="/search" component={Search} />
       {/* Auth以下は認証が必要なページ */}
       <Auth>
         <Route exact path="/logout" key="logout" component={Logout} />
