@@ -11,21 +11,21 @@ export default class Auth extends React.Component {
       isLoggedIn: false,
     };
 
-    this.isMounted = false;
+    this.mounted = false;
   }
 
   componentDidMount() {
-    this.isMounted = true;
+    this.mounted = true;
 
     firebaseAuth.onAuthStateChanged(async (user) => {
       if (user) {
-        if (this.isMounted) {
+        if (this.mounted) {
           this.setState({
             signinChecked: true,
             isLoggedIn: !!await getUserFromUid(user.uid),
           });
         }
-      } else if (this.isMounted) {
+      } else if (this.mounted) {
         this.setState({
           signinChecked: true,
           isLoggedIn: false,
@@ -35,7 +35,7 @@ export default class Auth extends React.Component {
   }
 
   componentWillUnmount() {
-    this.isMounted = false;
+    this.mounted = false;
   }
 
   render() {
@@ -51,7 +51,7 @@ export default class Auth extends React.Component {
       const { children } = this.props;
       return children;
     }
-    return <Redirect to="/signin" />;
+    return <Redirect to="/login" />;
   }
 }
 

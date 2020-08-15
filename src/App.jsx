@@ -8,6 +8,7 @@ import {
 import Timeline from './timeline/main';
 import Login from './login/Login';
 import Signup from './login/Signup';
+import Logout from './login/Logout';
 
 const Switcher = () => (
   <>
@@ -15,6 +16,7 @@ const Switcher = () => (
       <Route exact path="/timeline" component={Timeline} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
+      <Route exact path="/logout" component={Logout} />
     </Switch>
   </>
 );
