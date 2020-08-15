@@ -1,6 +1,13 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import AuthToggle from './AuthToggle';
+import MyPage from './nav/MyPage';
 import style from './Navigation.module.css';
+
+const Login = () => (
+  <Link to="/login">ログイン</Link>
+);
 
 const NavigationBar = () => (
   <Navbar className={style.header}>
@@ -8,7 +15,13 @@ const NavigationBar = () => (
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
       <Navbar.Text className={style.login}>
-        <a href="/login">ログイン / サインアップ</a>
+        <AuthToggle>
+          <span loading>
+            Loading...
+          </span>
+          <Login loggedIn={false} />
+          <MyPage loggedIn />
+        </AuthToggle>
       </Navbar.Text>
     </Navbar.Collapse>
   </Navbar>
