@@ -56,7 +56,7 @@ export default class User extends React.Component {
     const { user, posts } = this.state;
     if (!user) return 'Loading...';
     return (
-      <div className={style.body}>
+      <div className={`${style.body} maincontents`}>
         <Row>
           <Col sm={3} className={style.username}>
             <div className={style.profile}>

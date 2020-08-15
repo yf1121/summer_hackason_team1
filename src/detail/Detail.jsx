@@ -24,7 +24,7 @@ export default class Detail extends React.Component {
   render() {
     const { posts } = this.state;
     return (
-      <div className={style.body}>
+      <div className={`${style.body} maincontents`}>
         <Card className={style.card}>
           <Card.Body className={style.cardbody}>
             <h2 className={style.title}>{posts.title}</h2>
