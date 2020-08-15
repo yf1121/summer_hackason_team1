@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from './PostDetail.module.css';
 import { getPostDetail } from '../utils/firebase/main';
 
@@ -31,3 +32,11 @@ export default class Detail extends React.Component {
     );
   }
 }
+
+Detail.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      postid: PropTypes.string,
+    }),
+  }).isRequired,
+};
