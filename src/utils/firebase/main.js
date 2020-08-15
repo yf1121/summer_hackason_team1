@@ -52,6 +52,14 @@ const getUserPosts = async (userid) => {
   const userPostsSnapshot = await latestposts.where('userid', '==', userid).get();
   return await getPosts(userPostsSnapshot);
 };
+const searchNewsPosts = async (newspaper) => {
+  const userPostsSnapshot = await latestposts.where('newspaper', '==', newspaper).get();
+  return await getPosts(userPostsSnapshot);
+};
+const searchTagPosts = async (tag) => {
+  const userPostsSnapshot = await latestposts.where('tag', '==', tag).get();
+  return await getPosts(userPostsSnapshot);
+};
 const getPostDetail = async (id) => {
   const post = await posts.doc(id).get();
   return post.data();
@@ -90,6 +98,8 @@ export {
   getPopularPosts,
   getUserPosts,
   getPostDetail,
+  searchNewsPosts,
+  searchTagPosts,
   createPost,
   getUser,
   getUserFromUid,
