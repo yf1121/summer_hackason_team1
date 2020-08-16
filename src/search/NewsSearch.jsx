@@ -4,7 +4,6 @@ import { searchNewsPosts } from '../utils/firebase/main';
 import TagMenu from '../post/TagMenu';
 import Post from '../utils/Post';
 import { newspapers } from '../utils/tags';
-import style from './Search.module.scss';
 
 export default class NewsSearch extends React.Component {
   constructor() {
@@ -45,10 +44,8 @@ export default class NewsSearch extends React.Component {
     const message = loading ? 'Loading...' : (tag ? `${posts.length}個` : '');
     return (
       <div>
-        <div className={style.base}>
-          <h3>新聞検索</h3>
-          <TagMenu title="Newspaper" tags={newspapers} value={tag} onChange={(_tag) => this.execSearch(_tag)} />
-        </div>
+        <h3>新聞検索</h3>
+        <TagMenu title="Newspaper" tags={newspapers} value={tag} onChange={(_tag) => this.execSearch(_tag)} />
         <div>
           { message }
         </div>

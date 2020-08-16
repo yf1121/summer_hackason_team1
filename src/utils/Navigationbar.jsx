@@ -12,7 +12,7 @@ const Login = () => (
 
 const NavigationBar = () => (
   <Navbar className={style.header}>
-    <Navbar.Brand href="/timeline">Newstater 新聞記事感想投稿</Navbar.Brand>
+    <Navbar.Brand href="/timeline" className={style.title}>Newstater</Navbar.Brand>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
       <Navbar.Text className={style.login}>

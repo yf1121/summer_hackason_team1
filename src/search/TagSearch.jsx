@@ -4,7 +4,6 @@ import { searchTagPosts } from '../utils/firebase/main';
 import TagMenu from '../post/TagMenu';
 import Post from '../utils/Post';
 import { tags } from '../utils/tags';
-import style from './Search.module.scss';
 
 export default class TagSearch extends React.Component {
   constructor() {
@@ -45,10 +44,8 @@ export default class TagSearch extends React.Component {
     const message = loading ? 'Loading...' : (tag ? `${posts.length}個` : '');
     return (
       <div>
-        <div className={style.base}>
-          <h3>タグ検索</h3>
-          <TagMenu title="Tag" tags={tags} value={tag} onChange={(_tag) => this.execSearch(_tag)} />
-        </div>
+        <h3>タグ検索</h3>
+        <TagMenu title="Tag" tags={tags} value={tag} onChange={(_tag) => this.execSearch(_tag)} />
         <div>
           { message }
         </div>
