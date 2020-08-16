@@ -6,10 +6,16 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: rgb(112, 112, 112);
+    font-family: ro-san-std,sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .login {
     font-size: 0.75em;
+    font-family: ro-san-std,sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .footer {
     height: 40px;

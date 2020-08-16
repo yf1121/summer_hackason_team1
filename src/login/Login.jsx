@@ -13,6 +13,7 @@ const LoginText = ({ children }) => (
       <h3 className={style.info}>Googleアカウントでログイン</h3>
       {children}
     </div>
+    <a href="/" className={style.toabout}>Newstaterってなに？</a>
   </div>
 );
 
