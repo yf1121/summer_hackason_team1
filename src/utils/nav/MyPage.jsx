@@ -22,10 +22,10 @@ export default class MyPage extends React.Component {
   render() {
     const { user } = this.state;
     if (!user) return <></>;
-    const { name, userid } = user;
+    const { name } = user;
     return (
       <>
-        <Link to={`/user/${userid}`}>{name}</Link>
+        <Link to="setting">{name}</Link>
         /
         <Link to="/logout">ログアウト</Link>
         <Link to="/post">

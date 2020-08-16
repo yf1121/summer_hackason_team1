@@ -16,6 +16,7 @@ import Logout from './login/Logout';
 import Post from './post/main';
 import Detail from './detail/Detail';
 import Search from './search/Search';
+import Setting from './setting/main';
 import User from './user/main';
 
 const Switcher = () => (
@@ -37,6 +38,7 @@ const Switcher = () => (
       <Auth>
         <Route exact path="/logout" key="logout" component={Logout} />
         <Route exact path="/post" key="post" component={Post} />
+        <Route exact path="/setting" key="setting" component={Setting} />
       </Auth>
     </Switch>
     <Switch>

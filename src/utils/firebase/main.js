@@ -94,6 +94,7 @@ const getCurrentUser = () => {
   return getUserFromUid(currentUser.uid);
 };
 const setUser = (userdata) => users.doc().set(userdata);
+const updateUser = (id, userdata) => users.doc(id).update(userdata);
 
 export {
   firebase,
@@ -109,4 +110,5 @@ export {
   getUserFromUid,
   getCurrentUser,
   setUser,
+  updateUser,
 };
