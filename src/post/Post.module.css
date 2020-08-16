@@ -11,4 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: ro-san-std,sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }

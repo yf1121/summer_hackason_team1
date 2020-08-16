@@ -26,11 +26,11 @@ class Feed extends React.Component {
         onSelect={(k) => this.setState({ key: k })}
       >
         <Tab eventKey="Recent" title="Recent" className={style.wrapper}>
-          <h2>最新の投稿</h2>
+          <h2 className={style.base}>最新の投稿</h2>
           <LatestPosts />
         </Tab>
         <Tab eventKey="Popular" title="Popular" className={style.wrapper}>
-          <h2>人気の投稿</h2>
+          <h2 className={style.base}>人気の投稿</h2>
           <PopularPosts />
         </Tab>
       </Tabs>

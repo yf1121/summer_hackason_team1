@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   text-align: center;
   color: #3C322A;
@@ -38,4 +39,8 @@
 
 .info {
   margin: 10px 10px;
+}
+
+.toabout {
+  margin-top: 2em;
 }
