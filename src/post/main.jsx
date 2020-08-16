@@ -88,7 +88,7 @@ export default class Post extends React.Component {
             </Form.Group>
             <Form.Group controlId="postContent">
               <Form.Label>Content</Form.Label>
-              <Form.Control as="textarea" placeholder="Content" value={content} onChange={(e) => this.onChange(e, 'content')} style={{ height: '20rem' }} />
+              <Form.Control as="textarea" placeholder="Content" value={content} onChange={(e) => this.onChange(e, 'content')} style={{ height: '15rem' }} />
               {isEmpty && content === '' ? <Alert variant="danger">感想を入力してください。</Alert> : ''}
             </Form.Group>
             <Button variant="primary" type="submit" onClick={(e) => this.onClick(e)} disabled={isPost}>
