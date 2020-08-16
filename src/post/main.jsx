@@ -68,6 +68,7 @@ export default class Post extends React.Component {
     return (
       <div className={`${style.wrapper} maincontents`}>
         <Card className={style.card}>
+          <h3>投稿</h3>
           {isPost ? <Alert variant="primary">Posted</Alert> : ''}
           {isEmpty ? <Alert variant="danger">すべての項目を入力してください。</Alert> : ''}
           <Form>
@@ -87,7 +88,7 @@ export default class Post extends React.Component {
             </Form.Group>
             <Form.Group controlId="postContent">
               <Form.Label>Content</Form.Label>
-              <Form.Control as="textarea" placeholder="Content" value={content} onChange={(e) => this.onChange(e, 'content')} />
+              <Form.Control as="textarea" placeholder="Content" value={content} onChange={(e) => this.onChange(e, 'content')} style={{ height: '15rem' }} />
               {isEmpty && content === '' ? <Alert variant="danger">感想を入力してください。</Alert> : ''}
             </Form.Group>
             <Button variant="primary" type="submit" onClick={(e) => this.onClick(e)} disabled={isPost}>
