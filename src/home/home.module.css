@@ -3,7 +3,10 @@
     flex-direction: column;
     text-align: center;
     color: #3c322a;
-    background-image: url('');
+    background-image: url('./back.jpg');
+    background-color:rgba(225,214,182,0.7);
+    background-blend-mode:lighten;
+    min-height: 100vh;
 }
 
 .hometitle {
