@@ -68,6 +68,7 @@ export default class Post extends React.Component {
     return (
       <div className={`${style.wrapper} maincontents`}>
         <Card className={style.card}>
+          <h3>投稿</h3>
           {isPost ? <Alert variant="primary">Posted</Alert> : ''}
           {isEmpty ? <Alert variant="danger">すべての項目を入力してください。</Alert> : ''}
           <Form>
