@@ -6,6 +6,7 @@ import {
 } from 'react-bootstrap';
 import { firebaseAuth, setUser, getUserFromUid } from '../utils/firebase/main';
 import style from './account.module.scss';
+import { validateUsername } from '../utils/validation';
 
 // eslint-disable-next-line react/prop-types
 const SignupText = ({ children }) => (
@@ -17,10 +18,6 @@ const SignupText = ({ children }) => (
       {children}
     </div>
   </div>
-);
-
-const validateUsername = (username) => (
-  username.length >= 3 && username.replace(/(\s|　)+/ug, '').length >= 3
 );
 export default class Signup extends React.Component {
   constructor() {
